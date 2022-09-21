@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>asa</title>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="ask me anything1.css">
+    </head>
+    <body>
+        <div class="ama">
+         <p>__Ask Me Anything__</p> 
+        </div>
+        <div class="rules">
+            <p class="rule">Don't ask too personal questions...!!</p>
+            <p class="rule">Little bit are okay...!!</p>
+            <p class="rule">I'm happy to answer your questions...!!</p>
+            <p class="rule">Ask only in comments of this webpage...!!</p>
+            <p class="rule reply">I'll reply all questions on may 7 ...!! wait till then....!!!</p>
+        </div>
+        <div class="expire" id="expire">
+            <span>...expired on my birthday...</span>
+        </div>
+        <div class="time">
+            <span id="time"></span>
+        </div>
+    </body>
+    <script>
+var birthDate = new Date("may 7, 2022 00:00:00 PM").getTime();
+var x = setInterval(function() {
+  var today = new Date().getTime();
+  var left = birthDate-today;
+  var days = Math.floor(left/86400000);
+  var hours = Math.floor((left%(86400000))/3600000);
+  var minutes = Math.floor((left%3600000)/60000);
+  var seconds = Math.floor((left%60000)/1000);
+  document.getElementById("time").innerHTML = days + " days, " + hours + " hrs, "
+  + minutes + " min, " + seconds + " sec ";
+  if (left < 0) {
+    clearInterval(x);
+    document.getElementById("time").innerHTML = "...EXPIRED...";
+    document.getElementById("expire").style.display="none";
+  }
+}, 1000);
+</script>
+</html>
